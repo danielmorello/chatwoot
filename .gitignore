@@ -16,6 +16,12 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+# Ignore log/tmp directories when they are symlinks (WSL2 setup)
+/log
+/tmp
+# Ignore backup directories
+/log.backup/
+/tmp.backup/
 *.mmdb
 
 # Ignore Byebug command history file.

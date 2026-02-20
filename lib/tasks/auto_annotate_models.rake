@@ -4,7 +4,9 @@
 if Rails.env.development?
   require 'annotate_rb'
 
-  AnnotateRb::Core.load_rake_tasks
+  # Disabled automatic loading to avoid errors during migrations
+  # AnnotateRb::Core.load_rake_tasks
+  # To annotate manually, run: bundle exec annotate
 
   task :set_annotation_options do
     # You can override any of these by setting an environment variable of the
@@ -44,7 +46,7 @@ if Rails.env.development?
       'ignore_unknown_models' => 'false',
       'hide_limit_column_types' => 'integer,bigint,boolean',
       'hide_default_column_types' => 'json,jsonb,hstore',
-      'skip_on_db_migrate' => 'false',
+      'skip_on_db_migrate' => 'true',
       'format_bare' => 'true',
       'format_rdoc' => 'false',
       'format_markdown' => 'false',
