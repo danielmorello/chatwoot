@@ -92,5 +92,12 @@ describe('useBranding', () => {
 
       expect(result).toBe('Welcome to My-Company & Co.');
     });
+
+    it('should replace "Your Company" with installation name', () => {
+      const { replaceInstallationName } = useBranding();
+      const result = replaceInstallationName('Powered by Your Company');
+
+      expect(result).toBe('Powered by MyCompany');
+    });
   });
 });
